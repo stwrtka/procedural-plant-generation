@@ -10,18 +10,26 @@ turtle = turtle.Turtle()
 turtle.hideturtle()
 turtle.home()
 
-plant = 'F-F-L-F-F--LF-F-F-F-L-F-F-F-F-F-F-F-F-F-F-L-F-F-F-F-F-F-F-F-F-F-F-'
-def l_system(): #going to creat a string 
-    for type in plant:
-        draw_plant(type)
+plant = 'FFFF-FFF-F-F+FFF-F-FFF'
+#grammer 
+#axiom
 
-def draw_plant(type):
+#[] -->start and end of the branch
+angle = 90
+
+def l_system(): #going to create a string 
+    for type in plant:
+        draw_plant(type, angle)
+
+#any time you see a certain letter it should be this thing instead; F -> FF+F-[+-F]
+
+def draw_plant(type, angle):
     if type == 'F': #forward
-        turtle.forward(100)
+        turtle.forward(20)
     elif type == '-': #left
-        turtle.left(100)
+        turtle.left(angle)
     elif type == '+': #right
-        turtle.right(100)
+        turtle.right(angle)
     elif type == 'L': #leaf
         turtle.showturtle()
         turtle.stamp()
@@ -29,4 +37,4 @@ def draw_plant(type):
 
 l_system()
 
-turtle.getscreen()._root.mainloop()  #prevents the screen from automatically closing after the turtle draws
+turtle.getscreen()._root.mainloop()
